@@ -1,20 +1,16 @@
+import { useState } from "react";
 
 
 const CharacterModal = () => {
+  const [playerName, setPlayerName] = useState('');
 
     //Add modal
    const beginGame = () => {
-   playerName = document.getElementById("playerName").value;
-   player = new Creature (`${playerName}`, 30, 30, 2, 4, 4, 3, 3, 3, 18, null, longsword);
-   bear = new Creature ('Bear', 45, 45, 4, 1, 4, 2, 3, 0, 15, null, bite);
-   player.healsLeft = 3;
-   if (player.healsLeft > 0){ player.canHeal = true; }
-   bear.enemyName = player;
-   player.enemyName = bear;
-   rollInitiative();
-   textBreak();
+   const playerNameInput = document.getElementById("playerName")!.innerHTML;
+   setPlayerName(playerNameInput);
+   
    if (playerName) {
-     characterCreationModal.style.display = "none";
+     document.querySelector('form')!.style.display = "none";
    } else alert('Please enter a name');
  };
 
